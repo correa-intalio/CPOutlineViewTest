@@ -1,5 +1,6 @@
 @import <Foundation/CPObject.j>
 @import "IOFormBuilderTitle.j"
+@import "IOFormBuilderField.j"
 /*!
 *       IOFormBuilderPaletteDataSource
 *               
@@ -25,6 +26,8 @@
 	        fieldsTitle = [IOFormBuilderTitle newWithTitle:"Fields"],
 	        listsTitle = [IOFormBuilderTitle newWithTitle:"Lists"],
 	    	children = [elementsTitle,actionsTitle,fieldsTitle,listsTitle];
+		var field = [[IOFormBuilderField alloc] init];
+		[fieldsTitle setChildren: [field]]; 
 		root = [IOFormBuilderTitle newWithTitle:"Root"];
 		[root setChildren: children];
     }
