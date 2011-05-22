@@ -43,14 +43,15 @@ var rowHeights = [ ];
     [column setWidth:200];
     },0);
 
+    [column setWidth:CPRectGetWidth([_outlineView bounds])];
     [_outlineView registerForDraggedTypes:[CustomOutlineViewDragType]];
 
     [_outlineView setDataSource:datasource];
     [_outlineView setDelegate:self];
     [_outlineView setAllowsMultipleSelection:YES];
     [_outlineView expandItem:nil expandChildren:YES];
-    // [_outlineView setRowHeight:50.0];
-    // [_outlineView setIntercellSpacing:CPSizeMake(0.0, 10.0)]
+    //[_outlineView setRowHeight:50.0];
+    [_outlineView setIntercellSpacing:CPSizeMake(0.0, 10.0)]
 
     [scrollView setDocumentView:_outlineView];
     [theWindow setContentView:scrollView];
@@ -59,8 +60,11 @@ var rowHeights = [ ];
 
     [theWindow orderFront:self];
 
-    [column setWidth:CPRectGetWidth([_outlineView bounds])];
 }
 
+- (int)outlineView:(CPOutlineView)outlineView heightOfRowByItem:(id)anItem
+{
+    return [anItem heightOfRowByItem];
+}
 
 @end

@@ -39,21 +39,25 @@
     [titleLabel setFont:[CPFont boldSystemFontOfSize:14.0]];
 
     [titleLabel sizeToFit];
-    //[titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+    [titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
     [aComponentDataView addSubview:titleLabel];
 
     var descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,15.0, 195 , 60)];
-	//[descriptionLabel setAlignment:CPLeftTextAlignment];
+    [descriptionLabel setAlignment:CPLeftTextAlignment];
 
     [descriptionLabel setStringValue:"description"];
     [descriptionLabel setFont:[CPFont systemFontOfSize:10.0]];
 
-    //[descriptionLabel sizeToFit];
+    [descriptionLabel sizeToFit];
 
-    //[descriptionLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+    [descriptionLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
     [aComponentDataView addSubview:descriptionLabel];
 
 	return aComponentDataView;
+}
+- (int)heightOfRowByItem
+{
+    return 40;
 }
 
 - (id)initWithCoder:(CPCoder)theCoder

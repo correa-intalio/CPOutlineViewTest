@@ -90,4 +90,9 @@
 	return aComponentDataView;
 }
 
+- (int)heightOfRowByItem
+{
+    return 60;
+}
+
 @end
