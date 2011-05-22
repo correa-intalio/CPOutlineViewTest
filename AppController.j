@@ -8,6 +8,7 @@
 
 @import <Foundation/CPObject.j>
 @import <AppKit/CPOutlineView.j>
+@import "IOFormBuilderTitle.j"
 
 CPLogRegister(CPLogConsole);
 
@@ -138,8 +139,14 @@ var rowHeights = [ ];
     var theWindow = [[CPWindow alloc] initWithContentRect:CGRectMakeZero() styleMask:CPBorderlessBridgeWindowMask],
         contentView = [theWindow contentView];
 
-
-
+    var elementsTitle = [IOFormBuilderTitle newWithTitle:"Elements"],
+        actionsTitle = [IOFormBuilderTitle newWithTitle:"Actions"],
+        fieldsTitle = [IOFormBuilderTitle newWithTitle:"Fields"],
+        listsTitle = [IOFormBuilderTitle newWithTitle:"Lists"],
+        datasource = [elementsTitle,actionsTitle,fieldsTitle,listsTitle];
+    
+    alert(datasource);
+    
     _menu = [Menu menuWithTitle:@"Top" children:[
         [Menu menuWithTitle:@"1" children:[
             [Menu menuWithTitle:@"1.1" children:[
@@ -185,8 +192,8 @@ var rowHeights = [ ];
 
     var column = [[CPTableColumn alloc] initWithIdentifier:@"One"];
     [_outlineView addTableColumn:column];
-    [column setHeaderView:[[OutlineHeaderCustomView alloc] initWithFrame:CGRectMakeZero()]]; 
-    [column setDataView:[[OutlineItemCustomView alloc] initWithFrame:CGRectMakeZero()]]; 
+    [column setHeaderView:[[OutlineHeaderCustomView alloc] initWithFrame:CGRectMakeZero()]];
+    [column setDataView:[[OutlineItemCustomView alloc] initWithFrame:CGRectMakeZero()]];
     //[_outlineView setOutlineTableColumn:column];
     setTimeout(function(){
     [column setWidth:200];

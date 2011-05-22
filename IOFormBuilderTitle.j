@@ -8,19 +8,21 @@
 */
 @implementation IOFormBuilderTitle : IOFormBuilderComponent
 {
+    CPString title;
 }
 
-- (id)init
+- (id)initWithTitle:(CPString)aTitle
 {
-    if(self = [super init])
+    if (self = [super init])
     {
+        title = aTitle;
     }
     return self;
 }
 
 - (CPString)description
 {
-    return [super description];
+    return  "Description: [" + title + "]";
 }
 
 - (id)initWithCoder:(CPCoder)theCoder
@@ -41,5 +43,12 @@
     // [aCoder encodeObject:_title forKey:@"MenuTitleKey"];
     // [aCoder encodeObject:_children forKey:@"MenuChildrenKey"];
 }
+
+/// Instance creation methods
++ (id)newWithTitle:(CPString)theTitle
+{
+    return [[self alloc] initWithTitle:theTitle];
+}
+
 
 @end
