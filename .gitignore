@@ -1,2 +1,6 @@
-#Framwwork folder ignored
+# individual file
+.DS_Store
+
+#Frameworks folder ignored
+Frameworks/*
 Frameworks/**/*
