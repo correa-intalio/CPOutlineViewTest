@@ -18,4 +18,9 @@
     return self;
 }
 
+- (CPString)description
+{
+    return [super description];
+}
+
 @end

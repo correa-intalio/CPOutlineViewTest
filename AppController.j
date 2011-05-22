@@ -138,6 +138,8 @@ var rowHeights = [ ];
     var theWindow = [[CPWindow alloc] initWithContentRect:CGRectMakeZero() styleMask:CPBorderlessBridgeWindowMask],
         contentView = [theWindow contentView];
 
+
+
     _menu = [Menu menuWithTitle:@"Top" children:[
         [Menu menuWithTitle:@"1" children:[
             [Menu menuWithTitle:@"1.1" children:[

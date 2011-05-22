@@ -5,25 +5,28 @@
 *               
 *               - Datasource to use in Palette View in Form Builder.
 *
-*               - Abstract class. 
+*               - Abstract class. To manage children relationship. It mustn't be Instantiated.
 */
 @implementation IOFormBuilderComponent : CPObject
 {
-    CPArray     children @accessors(property=children);
-    
+    /*!
+    *   
+    */
+    CPArray     children @accessors;
 }
 
 - (id)init
 {
     if (self = [super init])
     {
+       //TODO: [CPException raise:"MyException" reason:"You didn't do something right."];
     }
     return self;
 }
 
 - (CPString)description
 {
-    return [self title];
+    return [super description];
 }
 
 - (void)insertSubmenu:(IOFormBuilderComponent)theItem atIndex:(int)theIndex
