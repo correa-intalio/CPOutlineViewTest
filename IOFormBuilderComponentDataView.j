@@ -34,8 +34,7 @@ var BorderType = CPLineBorder,
 
 - (void)setObjectValue:(id)anObject
 {
-	//debugger;
-    [anObject fillView: self];
+   [anObject fillView: self];
 	CPLog.trace([[CPString alloc] initWithFormat:@" Set object value method: %@ class[%@] ", anObject, [anObject class]]);
 }
 

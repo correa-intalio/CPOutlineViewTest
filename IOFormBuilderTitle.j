@@ -22,7 +22,38 @@
 
 - (CPString)description
 {
-    return  "Description: [" + title + "]";
+    return [[CPString alloc] initWithFormat:@"Title: %@ ", title];
+}
+
+- (id)fillView:(IOFormBuilderComponentDataView)aComponentDataView
+{
+    // var label = [[CPTextField alloc] initWithFrame:[aComponentDataView bounds]];
+    //     [label setStringValue:title];
+    //     [aComponentDataView addSubview:label];
+
+	
+	var titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 195, 50)];
+    [titleLabel setAlignment:CPCenterTextAlignment];
+
+    [titleLabel setStringValue:title];
+    [titleLabel setFont:[CPFont boldSystemFontOfSize:14.0]];
+
+    [titleLabel sizeToFit];
+    //[titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+    [aComponentDataView addSubview:titleLabel];
+
+    var descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,15.0, 195 , 60)];
+	//[descriptionLabel setAlignment:CPLeftTextAlignment];
+
+    [descriptionLabel setStringValue:"description"];
+    [descriptionLabel setFont:[CPFont systemFontOfSize:10.0]];
+
+    //[descriptionLabel sizeToFit];
+
+    //[descriptionLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+    [aComponentDataView addSubview:descriptionLabel];
+
+	return aComponentDataView;
 }
 
 - (id)initWithCoder:(CPCoder)theCoder

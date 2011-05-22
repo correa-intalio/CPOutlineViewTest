@@ -71,14 +71,4 @@
 
     return [theItem description];
 }
-
-- (id)fillView:(IOFormBuilderComponentDataView)aComponentDataView
-{
-	var label = [[CPTextField alloc] initWithFrame:[aComponentDataView bounds]];
-    [label setStringValue:["Hola!!!!"]];
-    [aComponentDataView addSubview:label];
-	
-	return [aComponentDataView];
-}
-
 @end
