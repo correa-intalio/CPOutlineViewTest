@@ -1,7 +1,7 @@
 @import <AppKit/CPBox.j>
 
 /*!
-*       IOFormBuilderComponentPrototype:
+*       IOFormBuilderComponentDataView:
 *
 *                       - 
 */
@@ -13,7 +13,7 @@ var BorderType = CPLineBorder,
     MARGIN = 5,
     VERTICAL_OFFSET = 2;
 
-@implementation IOFormBuilderComponentPrototype : CPBox
+@implementation IOFormBuilderComponentDataView : CPBox
 {
 }
 
@@ -34,7 +34,9 @@ var BorderType = CPLineBorder,
 
 - (void)setObjectValue:(id)anObject
 {
-    CPLog.trace([[CPString alloc] initWithFormat:@" Set object value method: %@ class[%@] ", anObject, [anObject class]]);
+	//debugger;
+    [[anObject objectAtIndex:0] fillView: self];
+	CPLog.trace([[CPString alloc] initWithFormat:@" Set object value method: %@ class[%@] ", anObject, [anObject class]]);
 }
 
 @end
