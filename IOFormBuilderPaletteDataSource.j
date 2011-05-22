@@ -76,7 +76,7 @@
 
     CPLog.debug(@"objectValueForTableColumn:%@ byItem:%@ : %@", theColumn, theItem, [theItem description]);
 	//debugger;
-    return [theItem];
+    return theItem;
 }
 
 @end

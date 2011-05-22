@@ -24,17 +24,6 @@
     return self;
 }
 
-- (id)initDatasource
-{
-        var elementsTitle = [IOFormBuilderTitle newWithTitle:"Elements"],
-	        actionsTitle = [IOFormBuilderTitle newWithTitle:"Actions"],
-	        fieldsTitle = [IOFormBuilderTitle newWithTitle:"Fields"],
-	        listsTitle = [IOFormBuilderTitle newWithTitle:"Lists"];
-	    children = [elementsTitle,actionsTitle,fieldsTitle,listsTitle];
-		//TODO: [CPException raise:"MyException" reason:"You didn't do something right."];
-    return self;
-}
-
 - (CPString)description
 {
     return [super description];
