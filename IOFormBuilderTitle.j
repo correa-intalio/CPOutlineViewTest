@@ -6,10 +6,14 @@
 *               - Form Builder Title represents the title of each group: elements, actions, fields and lists 
 *
 */
+var Componentheight = 80;
+
 @implementation IOFormBuilderTitle : IOFormBuilderComponent
 {
     CPString title;
+    CPBox componentView;
     CPTextField titleLabel;
+    CPTextField descriptionLabel;
 }
 
 - (id)initWithTitle:(CPString)aTitle
@@ -24,6 +28,39 @@
 - (CPString)description
 {
     return [[CPString alloc] initWithFormat:@"Title: %@ ", title];
+}
+
+- (CPBox)representationView
+{
+    if(!componentView)
+    {
+        componentView = [[CPBox alloc] initWithFrame:CGRectMake(0.0, 0.0, 195, Componentheight)];
+        var titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 195, 50)];
+        
+     	titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 195, 50)];
+        [titleLabel setAlignment:CPCenterTextAlignment];
+
+        [titleLabel setFont:[CPFont boldSystemFontOfSize:14.0]];
+
+        [titleLabel sizeToFit];
+        [titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+        [componentView addSubview:titleLabel];
+
+        descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,50,195,30)];
+        [descriptionLabel setAlignment:CPLeftTextAlignment];
+
+        [descriptionLabel setFont:[CPFont systemFontOfSize:10.0]];
+
+        [descriptionLabel sizeToFit];
+
+        [descriptionLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+        [componentView addSubview:descriptionLabel];
+    }
+    
+    [titleLabel setStringValue:title];
+    [descriptionLabel setStringValue:"description"];
+    
+    return componentView;
 }
 
 - (id)fillView:(IOFormBuilderComponentDataView)aComponentDataView
@@ -43,7 +80,7 @@
         [titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
         [aComponentDataView addSubview:titleLabel];
 
-        var descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,15.0, 195 , 60)];
+        descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,15.0, 195 , 60)];
         [descriptionLabel setAlignment:CPLeftTextAlignment];
 
         [descriptionLabel setFont:[CPFont systemFontOfSize:10.0]];
@@ -61,7 +98,7 @@
 }
 - (int)heightOfRowByItem
 {
-    return 50;
+    return Componentheight;
 }
 
 - (id)initWithCoder:(CPCoder)theCoder
