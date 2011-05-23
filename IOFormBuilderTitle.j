@@ -76,7 +76,7 @@ var Componentheight = 20.0;
         [componentView setBorderColor:[CPColor grayColor]];
         //[componentView setBackgroundColor:[CPColor redColor]];
 
-    	titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 196.0, Componentheight - 1.0)];
+    	titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, Componentheight - 1.0)];
         //titleLabel = [[CPTextField alloc] initWithFrame:CGRectMakeZero()];
         //titleLabel = [[CPTextField alloc] initWithFrame:[aComponentDataView bounds]];
         [titleLabel setAlignment:CPLeftTextAlignment];

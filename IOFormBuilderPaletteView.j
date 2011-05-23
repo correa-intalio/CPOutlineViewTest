@@ -167,3 +167,18 @@ CustomOutlineViewDragType = @"CustomOutlineViewDragType";
     return [anItem heightOfRowByItem];
 }
 @end
+
+@implementation CPColor (OutlineView) 
++ (CPColor)selectionColor 
+{ 
+        //return [CPColor colorWithPatternImage:[[CPImage alloc] 
+        //initByReferencingFile:@"Resources/gradient.png" size:CGSizeMake (1,20)]]; 
+        return [CPColor colorWithHexString:@"5f83b9"]; 
+} 
+
++ (CPColor)selectionColorSourceView { 
+        //return [CPColor colorWithPatternImage:[[CPImage alloc] initByReferencingFile:@"Resources/tableviewselection.png" size:CGSizeMake(6,22)]];  
+        return [CPColor greenColor];
+} 
+
+@end
