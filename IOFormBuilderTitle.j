@@ -6,7 +6,7 @@
 *               - Form Builder Title represents the title of each group: elements, actions, fields and lists 
 *
 */
-var Componentheight = 80;
+var Componentheight = 20;
 
 @implementation IOFormBuilderTitle : IOFormBuilderComponent
 {
@@ -69,30 +69,33 @@ var Componentheight = 80;
     //     [label setStringValue:title];
     //     [aComponentDataView addSubview:label];
 
-	if(!titleLabel)
-	{
-    	titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 195, 50)];
+    // if(!titleLabel)
+    //     {
+    	titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 200, 200)];
+        //titleLabel = [[CPTextField alloc] initWithFrame:CGRectMakeZero()];
+        //titleLabel = [[CPTextField alloc] initWithFrame:[aComponentDataView bounds]];
         [titleLabel setAlignment:CPCenterTextAlignment];
 
         [titleLabel setFont:[CPFont boldSystemFontOfSize:14.0]];
 
-        [titleLabel sizeToFit];
-        [titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+        //[titleLabel sizeToFit];
+        //[titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
         [aComponentDataView addSubview:titleLabel];
+        [titleLabel setBackgroundColor:[CPColor redColor]];
 
-        descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,15.0, 195 , 60)];
-        [descriptionLabel setAlignment:CPLeftTextAlignment];
-
-        [descriptionLabel setFont:[CPFont systemFontOfSize:10.0]];
-
-        [descriptionLabel sizeToFit];
-
-        [descriptionLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
-        [aComponentDataView addSubview:descriptionLabel];
-	}
+        // descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,15.0, 195 , 60)];
+        // [descriptionLabel setAlignment:CPLeftTextAlignment];
+        // 
+        // [descriptionLabel setFont:[CPFont systemFontOfSize:10.0]];
+        // 
+        // [descriptionLabel sizeToFit];
+        // 
+        // [descriptionLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+        // [aComponentDataView addSubview:descriptionLabel];
+    // }
 
     [titleLabel setStringValue:title];
-    [descriptionLabel setStringValue:"description"];
+    //[descriptionLabel setStringValue:"description"];
 
 	return aComponentDataView;
 }

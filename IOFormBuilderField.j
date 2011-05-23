@@ -44,8 +44,9 @@
 - (id)fillView:(IOFormBuilderComponentDataView)aComponentDataView
 {
     // Image
-	var aContentRect = CGRectMake(50, 150, 210.0, 10.0);
-	[aComponentDataView setFrame: aContentRect];
+    //[aComponentDataView removeAllVi]
+	var aContentRect = [aComponentDataView bounds];
+	//[aComponentDataView setFrame: aContentRect];
 	var globalHeight = aContentRect.size.height;
   	var anImage = [[CPImage alloc] initWithContentsOfFile:"Resources/AccountNumber.jpg" size:CGSizeMake(46.0, 38.0)];
     var imageBox = [[CPBox alloc] initWithFrame:CGRectMake(2,2, [[anImage size].width], [[anImage size].height] - 2)];
@@ -92,7 +93,7 @@
 
 - (int)heightOfRowByItem
 {
-    return 60;
+    return 40;
 }
 
 @end

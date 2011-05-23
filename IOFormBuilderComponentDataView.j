@@ -34,8 +34,13 @@ var BorderType = CPLineBorder,
 
 - (void)setObjectValue:(id)anObject
 {
-    
-    CPLog.trace([[CPString alloc] initWithFormat:@" Set object value method: %@ class[%@] ", anObject, [anObject class]]);
+    var subviews = [self subviews];
+    for (var i=0; i < subviews.length; i++) {
+        [subviews[i] removeFromSuperview];
+    };
+    CPLog.trace("Subviews: " + [self subviews]);
+    [anObject fillView: self];
+    CPLog.trace([[CPString alloc] initWithFormat:@" Set object value method: %@ class[%@] self %@ ", anObject, [anObject class], self]);
 }
 
 @end

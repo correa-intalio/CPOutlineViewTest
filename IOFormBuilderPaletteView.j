@@ -1,5 +1,6 @@
 @import <AppKit/CPOutlineView.j>
 @import "IOFormBuilderTitle.j"
+@import "IOFormBuilderField.j"
 /*!
 *       IOFormBuilderPaletteView
 *                   - 
@@ -35,17 +36,18 @@ CustomOutlineViewDragType = @"CustomOutlineViewDragType";
 	        fieldsTitle = [IOFormBuilderTitle newWithTitle:"Fields"],
 	        listsTitle = [IOFormBuilderTitle newWithTitle:"Lists"],
 	    	children = [elementsTitle,actionsTitle,fieldsTitle,listsTitle];
-        // var field = [[IOFormBuilderField alloc] init];
-        // [fieldsTitle setChildren: [field]]; 
-		root = [IOFormBuilderTitle newWithTitle:"Root"];
+        var field = [[IOFormBuilderField alloc] init];
+        var field2 = [[IOFormBuilderField alloc] init];
+        [fieldsTitle setChildren: [field, field2]]; 
+        root = [IOFormBuilderTitle newWithTitle:"Root"];
 		[root setChildren: children];
 
         [outlineView addTableColumn:column];
         [column setDataView:[[IOFormBuilderComponentDataView alloc] initWithFrame:CGRectMakeZero()]];
         //[_outlineView setOutlineTableColumn:column];
         setTimeout(function(){
-        [column setWidth:200];
-        },0);
+                [column setWidth:200];
+                },0);
 
         [column setWidth:CPRectGetWidth([self bounds])];
         [outlineView registerForDraggedTypes:[CustomOutlineViewDragType]];
