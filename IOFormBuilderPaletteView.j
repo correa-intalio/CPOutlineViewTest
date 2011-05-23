@@ -102,6 +102,55 @@ CustomOutlineViewDragType = @"CustomOutlineViewDragType";
 
     return theItem;
 }
+
+- (BOOL)outlineView:(CPOutlineView)anOutlineView writeItems:(CPArray)theItems toPasteboard:(CPPasteBoard)thePasteBoard
+{
+    _draggedItems = theItems;
+    [thePasteBoard declareTypes:[CustomOutlineViewDragType] owner:self];
+    [thePasteBoard setData:[CPKeyedArchiver archivedDataWithRootObject:theItems] forType:CustomOutlineViewDragType];
+
+    return YES;
+}
+
+- (CPDragOperation)outlineView:(CPOutlineView)anOutlineView validateDrop:(id < CPDraggingInfo >)theInfo proposedItem:(id)theItem proposedChildIndex:(int)theIndex
+{
+    CPLog.debug(@"validate item: %@ at index: %i", theItem, theIndex);
+
+    if (theItem === nil)
+        [anOutlineView setDropItem:nil dropChildIndex:theIndex];
+
+    [anOutlineView setDropItem:theItem dropChildIndex:theIndex];
+
+    return CPDragOperationEvery;
+}
+
+- (BOOL)outlineView:(CPOutlineView)outlineView acceptDrop:(id < CPDraggingInfo >)theInfo item:(id)theItem childIndex:(int)theIndex
+{
+    if (theItem === nil)
+        theItem = [self menu];
+
+    // CPLog.debug(@"drop item: %@ at index: %i", theItem, theIndex);
+
+    var menuIndex = [_draggedItems count];
+
+    while (menuIndex--)
+    {
+        var menu = [_draggedItems objectAtIndex:menuIndex];
+
+        // CPLog.debug(@"move item: %@ to: %@ index: %@", menu, theItem, theIndex);
+
+        if (menu === theItem)
+            continue;
+
+        [menu removeFromMenu];
+        [theItem insertSubmenu:menu atIndex:theIndex];
+        theIndex += 1;
+    }
+
+    return YES;
+}
+
+
 @end
 /*!
 *           IOFormBuilderPaletteView

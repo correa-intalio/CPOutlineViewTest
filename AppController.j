@@ -28,7 +28,7 @@ var rowHeights = [ ];
     var theWindow = [[CPWindow alloc] initWithContentRect:CGRectMakeZero() styleMask:CPBorderlessBridgeWindowMask],
         contentView = [theWindow contentView];
 
-    [theWindow setContentView:[[IOFormBuilderPaletteView alloc] initWithFrame:[contentView bounds]]];
+    [theWindow setContentView:[[IOFormBuilderPaletteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 250, 600)]];
     [theWindow orderFront:self];
 
 }
