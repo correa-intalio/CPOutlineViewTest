@@ -30,7 +30,7 @@ CustomOutlineViewDragType = @"CustomOutlineViewDragType";
             column = [[CPTableColumn alloc] initWithIdentifier:@"One"],
             scrollView = [[CPScrollView alloc] initWithFrame:[self bounds]],
             outlineView = [[CPOutlineView alloc] initWithFrame:[self bounds]];
-            
+        
         var elementsTitle = [IOFormBuilderTitle newWithTitle:"Elements"],
 	        actionsTitle = [IOFormBuilderTitle newWithTitle:"Actions"],
 	        fieldsTitle = [IOFormBuilderTitle newWithTitle:"Fields"],
@@ -51,7 +51,7 @@ CustomOutlineViewDragType = @"CustomOutlineViewDragType";
 
         [column setWidth:CPRectGetWidth([self bounds])];
         [outlineView registerForDraggedTypes:[CustomOutlineViewDragType]];
-
+        
         [outlineView setDataSource:self];
         [outlineView setDelegate:self];
         [outlineView setAllowsMultipleSelection:YES];
@@ -126,28 +126,29 @@ CustomOutlineViewDragType = @"CustomOutlineViewDragType";
 
 - (BOOL)outlineView:(CPOutlineView)outlineView acceptDrop:(id < CPDraggingInfo >)theInfo item:(id)theItem childIndex:(int)theIndex
 {
-    if (theItem === nil)
-        theItem = [self menu];
-
-    // CPLog.debug(@"drop item: %@ at index: %i", theItem, theIndex);
-
-    var menuIndex = [_draggedItems count];
-
-    while (menuIndex--)
-    {
-        var menu = [_draggedItems objectAtIndex:menuIndex];
-
-        // CPLog.debug(@"move item: %@ to: %@ index: %@", menu, theItem, theIndex);
-
-        if (menu === theItem)
-            continue;
-
-        [menu removeFromMenu];
-        [theItem insertSubmenu:menu atIndex:theIndex];
-        theIndex += 1;
-    }
-
-    return YES;
+    // if (theItem === nil)
+    //     theItem = [self menu];
+    // 
+    // // CPLog.debug(@"drop item: %@ at index: %i", theItem, theIndex);
+    // 
+    // var menuIndex = [_draggedItems count];
+    // 
+    // while (menuIndex--)
+    // {
+    //     var menu = [_draggedItems objectAtIndex:menuIndex];
+    // 
+    //     // CPLog.debug(@"move item: %@ to: %@ index: %@", menu, theItem, theIndex);
+    // 
+    //     if (menu === theItem)
+    //         continue;
+    // 
+    //     [menu removeFromMenu];
+    //     [theItem insertSubmenu:menu atIndex:theIndex];
+    //     theIndex += 1;
+    // }
+    // 
+    // return YES;
+    return NO;
 }
 
 

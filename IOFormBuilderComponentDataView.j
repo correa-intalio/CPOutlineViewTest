@@ -7,7 +7,7 @@
 */
 
 // Class variables. Typically to use to share behavior between instances. See Scope paragraph in http://cappuccino.org/learn/tutorials/objective-j-tutorial.php
-var BorderType = CPLineBorder,
+var BorderType = CPNoBorder,
     BackgroundColor = [CPColor colorWithCalibratedRed:0.912 green:0.912 blue:0.912 alpha:1.0],
     HEIGHT = 22,
     MARGIN = 5,

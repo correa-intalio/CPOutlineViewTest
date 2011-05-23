@@ -6,7 +6,7 @@
 *               - Form Builder Title represents the title of each group: elements, actions, fields and lists 
 *
 */
-var Componentheight = 20;
+var Componentheight = 20.0;
 
 @implementation IOFormBuilderTitle : IOFormBuilderComponent
 {
@@ -71,17 +71,24 @@ var Componentheight = 20;
 
     // if(!titleLabel)
     //     {
-    	titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 200, 200)];
+        componentView = [[CPBox alloc] initWithFrame:CGRectMake(0.0, 0.0, 200, Componentheight)];
+        [componentView setBorderType:CPLineBorder];
+        [componentView setBorderColor:[CPColor grayColor]];
+        //[componentView setBackgroundColor:[CPColor redColor]];
+
+    	titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 196.0, Componentheight - 1.0)];
         //titleLabel = [[CPTextField alloc] initWithFrame:CGRectMakeZero()];
         //titleLabel = [[CPTextField alloc] initWithFrame:[aComponentDataView bounds]];
-        [titleLabel setAlignment:CPCenterTextAlignment];
+        [titleLabel setAlignment:CPLeftTextAlignment];
 
         [titleLabel setFont:[CPFont boldSystemFontOfSize:14.0]];
 
         //[titleLabel sizeToFit];
         //[titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
-        [aComponentDataView addSubview:titleLabel];
-        [titleLabel setBackgroundColor:[CPColor redColor]];
+        [componentView addSubview:titleLabel];
+        [aComponentDataView addSubview:componentView];
+        
+        [titleLabel setBackgroundColor:[CPColor whiteColor]];
 
         // descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,15.0, 195 , 60)];
         // [descriptionLabel setAlignment:CPLeftTextAlignment];
