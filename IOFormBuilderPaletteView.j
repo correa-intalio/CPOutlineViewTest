@@ -31,11 +31,12 @@ CustomOutlineViewDragType = @"CustomOutlineViewDragType";
             scrollView = [[CPScrollView alloc] initWithFrame:[self bounds]],
             outlineView = [[CPOutlineView alloc] initWithFrame:[self bounds]];
         
-        var elementsTitle = [IOFormBuilderTitle newWithTitle:"Elements"],
-	        actionsTitle = [IOFormBuilderTitle newWithTitle:"Actions"],
-	        fieldsTitle = [IOFormBuilderTitle newWithTitle:"Fields"],
-	        listsTitle = [IOFormBuilderTitle newWithTitle:"Lists"],
+        var elementsTitle = [IOFormBuilderTitle newWithTitle:"FORM ELEMENTS"],
+	        actionsTitle = [IOFormBuilderTitle newWithTitle:"FORM ACTIONS"],
+	        fieldsTitle = [IOFormBuilderTitle newWithTitle:"FORM FIELDS"],
+	        listsTitle = [IOFormBuilderTitle newWithTitle:"FORM LISTS"],
 	    	children = [elementsTitle,actionsTitle,fieldsTitle,listsTitle];
+	    	
         var field = [[IOFormBuilderField alloc] init];
         var field2 = [[IOFormBuilderField alloc] init];
         [fieldsTitle setChildren: [field, field2]]; 

@@ -80,6 +80,7 @@ var Componentheight = 20.0;
         //titleLabel = [[CPTextField alloc] initWithFrame:CGRectMakeZero()];
         //titleLabel = [[CPTextField alloc] initWithFrame:[aComponentDataView bounds]];
         [titleLabel setAlignment:CPLeftTextAlignment];
+        [titleLabel setTextColor:[CPColor grayColor]];
 
         [titleLabel setFont:[CPFont boldSystemFontOfSize:14.0]];
 
