@@ -8,12 +8,9 @@
 
 @import <Foundation/CPObject.j>
 @import <AppKit/CPOutlineView.j>
-@import "IOFormBuilderPaletteDataSource.j"
-@import "IOFormBuilderComponentDataView.j"
 @import "IOFormBuilderPaletteView.j"
 CPLogRegister(CPLogConsole);
 
-CustomOutlineViewDragType = @"CustomOutlineViewDragType";
 
 
 var rowHeights = [ ];

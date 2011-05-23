@@ -9,6 +9,7 @@
 @implementation IOFormBuilderTitle : IOFormBuilderComponent
 {
     CPString title;
+    CPTextField titleLabel;
 }
 
 - (id)initWithTitle:(CPString)aTitle
@@ -31,33 +32,36 @@
     //     [label setStringValue:title];
     //     [aComponentDataView addSubview:label];
 
-	
-	var titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 195, 50)];
-    [titleLabel setAlignment:CPCenterTextAlignment];
+	if(!titleLabel)
+	{
+    	titleLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 195, 50)];
+        [titleLabel setAlignment:CPCenterTextAlignment];
+
+        [titleLabel setFont:[CPFont boldSystemFontOfSize:14.0]];
+
+        [titleLabel sizeToFit];
+        [titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+        [aComponentDataView addSubview:titleLabel];
+
+        var descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,15.0, 195 , 60)];
+        [descriptionLabel setAlignment:CPLeftTextAlignment];
+
+        [descriptionLabel setFont:[CPFont systemFontOfSize:10.0]];
+
+        [descriptionLabel sizeToFit];
+
+        [descriptionLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
+        [aComponentDataView addSubview:descriptionLabel];
+	}
 
     [titleLabel setStringValue:title];
-    [titleLabel setFont:[CPFont boldSystemFontOfSize:14.0]];
-
-    [titleLabel sizeToFit];
-    [titleLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
-    [aComponentDataView addSubview:titleLabel];
-
-    var descriptionLabel = [[CPTextField alloc] initWithFrame:CGRectMake(0,15.0, 195 , 60)];
-    [descriptionLabel setAlignment:CPLeftTextAlignment];
-
     [descriptionLabel setStringValue:"description"];
-    [descriptionLabel setFont:[CPFont systemFontOfSize:10.0]];
-
-    [descriptionLabel sizeToFit];
-
-    [descriptionLabel setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
-    [aComponentDataView addSubview:descriptionLabel];
 
 	return aComponentDataView;
 }
 - (int)heightOfRowByItem
 {
-    return 40;
+    return 50;
 }
 
 - (id)initWithCoder:(CPCoder)theCoder

@@ -1,9 +1,14 @@
 @import <AppKit/CPOutlineView.j>
+@import "IOFormBuilderTitle.j"
 /*!
 *       IOFormBuilderPaletteView
 *                   - 
 *
 */
+
+CustomOutlineViewDragType = @"CustomOutlineViewDragType";
+
+
 @implementation IOFormBuilderPaletteView : CPView
 {
     /*!
@@ -30,8 +35,8 @@
 	        fieldsTitle = [IOFormBuilderTitle newWithTitle:"Fields"],
 	        listsTitle = [IOFormBuilderTitle newWithTitle:"Lists"],
 	    	children = [elementsTitle,actionsTitle,fieldsTitle,listsTitle];
-		var field = [[IOFormBuilderField alloc] init];
-		[fieldsTitle setChildren: [field]]; 
+        // var field = [[IOFormBuilderField alloc] init];
+        // [fieldsTitle setChildren: [field]]; 
 		root = [IOFormBuilderTitle newWithTitle:"Root"];
 		[root setChildren: children];
 
