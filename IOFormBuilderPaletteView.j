@@ -52,7 +52,7 @@ CustomOutlineViewDragType = @"CustomOutlineViewDragType";
 
         [column setWidth:CPRectGetWidth([self bounds])];
         [outlineView registerForDraggedTypes:[CustomOutlineViewDragType]];
-        
+        [outlineView setAllowsMultipleSelection:NO];
         [outlineView setDataSource:self];
         [outlineView setDelegate:self];
         [outlineView setAllowsMultipleSelection:YES];
