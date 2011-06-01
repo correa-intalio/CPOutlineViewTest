@@ -166,6 +166,12 @@ CustomOutlineViewDragType = @"CustomOutlineViewDragType";
 {
     return [anItem heightOfRowByItem];
 }
+
+- (BOOL)outlineView:(CPOutlineView)anOutlineView shouldEditTableColumn:(CPTableColumn)aColumn item:(int)aRow
+{
+    CPLog.trace("......Diego.....");
+    return YES;
+}
 @end
 
 @implementation CPColor (OutlineView) 
