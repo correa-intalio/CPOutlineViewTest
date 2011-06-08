@@ -69,7 +69,6 @@ var rowHeights = [ ];
     console.log(item);
     // var types = [[aSender draggingPasteboard] types];
     // CPLog.trace("performDragOperation data:" + item + " types:" + types);
-    textField setStringValue:item[0] 
     [[CPNotificationCenter defaultCenter] postNotificationName:@"CustomOutlineViewDragType" object:self];
     [self setBackgroundColor:[CPColor lightGrayColor]];
 }
